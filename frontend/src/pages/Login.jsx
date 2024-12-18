@@ -1,24 +1,24 @@
 // import React, { useState } from 'react';
 import {
-  Flex,
-  Container,
-  Image,
-  FormControl,
-  Heading,
-  FormLabel,
-  RadioGroup,
-  HStack,
   Box,
-  Input,
-  Grid,
   Button,
+  Container,
+  Flex,
+  FormControl,
+  FormLabel,
+  Grid,
+  Heading,
+  Image,
+  Input,
+  RadioGroup,
 } from "@chakra-ui/react";
-import { extendTheme } from "@chakra-ui/react";
-import { useState, useContext, useEffect } from "react";
+
 import axios from "axios";
-import { GlobalContext } from "../context/GlobalContext";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import { useToast } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import useGlobal from "../hooks/global";
 
 // 2. Update the breakpoints as key-value pairs
 
@@ -27,8 +27,8 @@ const Login = () => {
   const [role, setRole] = useState("doctor");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { currentUser, setCurrentUser, setExpirationTime } =
-    useContext(GlobalContext);
+  const { currentUser, setCurrentUser, setExpirationTime } = useGlobal();
+
   const navigator = useNavigate();
   const toast = useToast();
   const [error, setError] = useState(false);
@@ -38,7 +38,7 @@ const Login = () => {
     if (currentUser) {
       if (currentUser.role === "doctor") navigator("/user/doctor/dashboard");
       else navigator("/user/receptionist/add-details");
-    
+
     }
   }, []);
 
@@ -76,7 +76,7 @@ const Login = () => {
         if (loggedInUser?.role === "doctor")
           navigator("/user/doctor/dashboard");
         else navigator("/user/receptionist/add-details");
-       
+
       })
       .catch((error) => {
         setError(true);
@@ -127,16 +127,16 @@ const Login = () => {
         justifyContent="center"
         direction={{ md: "row", sm: "column", base: "column" }}
         alignItems="center"
-        height="100vh"
+        p={10}
         gap={{ md: "10%", sm: "1px", base: "0px" }}
-        width="100"
+
       >
         <Flex>
           <Container maxW="600px" minW="60px" centerContent>
             <Image
               width={{ md: "90%", sm: "80%", base: "70%" }}
               src="./src/assets/logo.png"
-            
+
               filter="drop-shadow(0px 0px 20px #0bc5ea)"
             ></Image>
           </Container>

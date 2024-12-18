@@ -10,10 +10,10 @@ import {
 
 } from "@chakra-ui/react";
 import { Outlet, NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
-import Header from "../components/Header";
+// import logo from "../assets/logo.png";
+import Header from "../../components/Header";
 import { useContext, useEffect } from "react";
-import { GlobalContext } from "../context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -28,8 +28,8 @@ const DoctorHome = () => {
   const navigator = useNavigate();
   const toast = useToast();
 
-  
-  
+
+
   useEffect(() => {
     if (!currentUser || currentUser.role !== "doctor")
       toast({
@@ -60,7 +60,7 @@ const DoctorHome = () => {
         xl: "minmax(200px,17%) auto",
       }}
       h="100svh"
-     
+
     >
       <Box
         zIndex={2}
@@ -119,7 +119,7 @@ const DoctorHome = () => {
           lg: "10svh 90svh",
           xl: "10svh 90svh",
         }}
-       
+
       >
         <Header role="doctor" />
         <Outlet />

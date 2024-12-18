@@ -1,18 +1,16 @@
 import {
-  Grid,
-  Heading,
+  Button,
   FormControl,
   FormLabel,
+  Grid,
   Input,
-  Button,
-  useToast,
+  useToast
 } from "@chakra-ui/react";
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import {
-  isValidAmount,
-  isValidFullName,
+  isValidAmount
 } from "../helpers/formValidationHelpers";
 
 const AddBilling = ({ patient_name }) => {
@@ -132,7 +130,7 @@ const AddBilling = ({ patient_name }) => {
           Name
         </FormLabel>
         <Input
-          
+
           bg={inputBgColor}
           border="2px solid"
           borderColor="cyan.500"
@@ -148,7 +146,7 @@ const AddBilling = ({ patient_name }) => {
           Amount
         </FormLabel>
         <Input
-          
+
           bg={inputBgColor}
           border="2px solid"
           borderColor="cyan.500"
@@ -164,7 +162,7 @@ const AddBilling = ({ patient_name }) => {
           Date
         </FormLabel>
         <Input
-          
+
           bg={inputBgColor}
           border="2px solid"
           borderColor="cyan.500"

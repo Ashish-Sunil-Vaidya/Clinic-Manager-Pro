@@ -10,7 +10,7 @@ const GlobalProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(currentUser));
     localStorage.setItem("expirationTime", expirationTime);
-  }, [currentUser]) 
+  }, [currentUser])
 
   const sidebarMenuBgColor = useColorModeValue("cyan.500", "gray.600");
   const sidebarBgColor = useColorModeValue("cyan.400", "gray.700");

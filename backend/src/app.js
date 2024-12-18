@@ -4,14 +4,17 @@ import cookieParser from "cookie-parser"
 import userRouter from "./routes/user.routes.js"
 import receiptionistRouter from "./routes/receiptionist.routes.js"
 import doctorRouter from "./routes/doctor.routes.js"
-
 import swaggerUi from "swagger-ui-express";
+import path from 'path';
+import { fileURLToPath } from "url";
 import swaggerJsDoc from "swagger-jsdoc";
-import postmanToOpenApi from "postman-to-openapi";
+
+const __dirname1 = path.dirname(fileURLToPath(import.meta.url));
+const __dirname2 = path.join(__dirname1, '../');
 
 const app = express()
 
-import { openapi } from "../openapi.js" 
+import { openapi } from "../openapi.js"
 
 app.use(cors({
     origin: "http://localhost:5173",
@@ -28,7 +31,6 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/users/receptionist", receiptionistRouter);
 app.use("/api/v1/users/doctor", doctorRouter);
 
-
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapi));
 
 app.get('/swagger-json', (req, res) => {
@@ -36,35 +38,18 @@ app.get('/swagger-json', (req, res) => {
     res.send(swaggerJson);
 });
 
-app.get('/generate-yml', async (req, res) => {
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // Postman Collection Path
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    const postmanCollection = 'collection.json'
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // Output OpenAPI Path
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    const outputFile = 'collection.yml'
-    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    // Async/await
-    ////++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    try {
-        const result = await postmanToOpenApi(postmanCollection, outputFile, {
-            defaultTag: 'General'
-        })
-        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        // Without save the result in a file
-        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        const result2 = await postmanToOpenApi(postmanCollection, null, {
-            defaultTag: 'General'
-        })
-        console.log(`OpenAPI specs: ${result}`)
-    } catch (err) {
-        console.log(err)
-    }
-});
-app.get('/' , (req,res)=>{ 
-    res.send("Welcome to backend of clinic management system developed by --Syed Waseem(Code Surgery Squad)");  
- }) 
+// DEPLOYMENT CODE
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname2, '/frontend/dist')));
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname2, 'frontend', 'dist', 'index.html')));
+}
+else {
+    app.get('/', (req, res) => {
+        res.send('Server is running in dev mode');
+    });
+    console.log('=== Dev Mode server.js ===');
+}
+
+
 export { app }
 

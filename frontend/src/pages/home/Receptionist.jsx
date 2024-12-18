@@ -9,10 +9,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { Outlet, NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png";
-import clinicImg from "../assets/clinic.jpeg";
-import Header from "../components/Header";
-import { GlobalContext } from "../context/GlobalContext";
+
+import Header from "../../components/Header";
+import { GlobalContext } from "../../context/GlobalContext";
 import { useState, useContext, useEffect } from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 

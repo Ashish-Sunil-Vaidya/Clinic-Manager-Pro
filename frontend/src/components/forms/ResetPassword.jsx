@@ -1,9 +1,8 @@
-import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react";
-import { useState, useContext, useEffect } from "react";
-import { GlobalContext } from "../../context/GlobalContext"
+import { Box, Button, FormControl, FormLabel, Input, useToast } from "@chakra-ui/react";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
-import axios from "axios"
+import { GlobalContext } from "../../context/GlobalContext";
 const ResetPassword = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -34,7 +33,7 @@ const ResetPassword = () => {
         status: 'error',
         duration: 9000,
         isClosable: true,
-      }) 
+      })
     }
     else if(newPassword !== confirmPassword) {
       toast({
@@ -77,7 +76,7 @@ const ResetPassword = () => {
       })
     })
     }
-    
+
   }
 
 

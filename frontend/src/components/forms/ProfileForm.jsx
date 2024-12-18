@@ -1,19 +1,18 @@
 import {
-  Grid,
-  Flex,
+  Avatar,
+  Box,
   Button,
+  Flex,
   FormControl,
   FormLabel,
+  Grid,
   Input,
-  Avatar,
-  Box
+  useToast
 } from "@chakra-ui/react";
-import { useState, useContext, useEffect } from "react";
-import { GlobalContext } from "../../context/GlobalContext";
-import { useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
 import axios from "axios";
-import { Spinner } from "@chakra-ui/react";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const ProfileForm = () => {
   const [formData, setFormData] = useState({

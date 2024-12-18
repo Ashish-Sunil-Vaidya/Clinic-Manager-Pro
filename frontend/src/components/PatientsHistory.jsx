@@ -1,8 +1,12 @@
 import {
   Box,
+  Button,
   Grid,
   Input,
   InputGroup,
+  Menu,
+  MenuButton,
+  MenuList,
   Table,
   TableContainer,
   Tbody,
@@ -10,18 +14,13 @@ import {
   Th,
   Thead,
   Tr,
-  Menu,
-  MenuButton,
-  MenuList,
-  Button,
 } from "@chakra-ui/react";
 // import patientsData from "./data/patients.data";
-import { Search2Icon } from "@chakra-ui/icons";
-import { GlobalContext } from "../context/GlobalContext";
-import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
-import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalContext";
 
 const PatientsHistory = () => {
   const [patientsHistory, setPatientsHistory] = useState([]);
@@ -181,7 +180,7 @@ const PatientsHistory = () => {
               </Tr>
             </Thead>
             <Tbody>
-              {filteredData.map((Patient, index) => {
+              {filteredData.length > 0 &&  filteredData.map((Patient, index) => {
                 return (
                   <Tr
                     key={index}

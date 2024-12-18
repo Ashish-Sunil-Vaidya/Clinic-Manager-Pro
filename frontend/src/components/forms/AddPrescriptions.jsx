@@ -1,19 +1,18 @@
 import {
+  Box,
   Button,
   Flex,
   FormControl,
   FormLabel,
   Grid,
-  Heading,
   Input,
-  Box,
   Text,
   Textarea,
+  useToast
 } from "@chakra-ui/react";
-import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { useToast } from "@chakra-ui/react";
 
 function AddPrescriptions({ patient_name }) {
   const [medicine, setMedicine] = useState("");

@@ -1,35 +1,34 @@
 import {
-  TableContainer,
-  Thead,
-  Tr,
-  Th,
-  Td,
-  Tbody,
-  Table,
-  InputGroup,
-  Input,
-  Grid,
-  Box,
+  AbsoluteCenter,
   Accordion,
-  AccordionItem,
   AccordionButton,
-  AccordionPanel,
   AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Grid,
+  Input,
+  InputGroup,
   Menu,
   MenuButton,
   MenuList,
-  Button,
-  Divider,
-  AbsoluteCenter,
-  Flex,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
   Text,
+  Th,
+  Thead,
+  Tr,
+  useToast,
 } from "@chakra-ui/react";
-import { Search2Icon } from "@chakra-ui/icons";
-import { useEffect, useState, useContext } from "react";
-import { GlobalContext } from "../context/GlobalContext";
-import { useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
 import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalContext";
 
 const Schedules = () => {
   const [appointmentsData, setAppointmentsData] = useState([]);

@@ -1,5 +1,4 @@
 {
-
   "name": "clinic-frontend",
   "private": true,
   "version": "0.0.0",
@@ -13,28 +12,29 @@
   },
   "dependencies": {
     "@chakra-ui/icon": "^3.2.0",
-    "@chakra-ui/icons": "^2.1.1",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "axios": "^1.6.8",
-    "filepond": "^4.31.1",
+    "@chakra-ui/icons": "^2.2.5",
+    "@chakra-ui/react": "^2.10.4",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "axios": "^1.7.9",
+    "filepond": "^4.32.5",
     "filepond-plugin-image-exif-orientation": "^1.0.11",
     "filepond-plugin-image-preview": "^4.6.12",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-filepond": "^7.1.2",
-    "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.3"
+    "framer-motion": "^11.15.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-filepond": "^7.1.3",
+    "react-icons": "^5.4.0",
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.56",
-    "@types/react-dom": "^18.2.19",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.1.4"
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "vite": "^5.4.11"
   }
 }

@@ -3,27 +3,22 @@ import {
   Flex,
   FormControl,
   FormLabel,
+  HStack,
   Input,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
   NumberInput,
   NumberInputField,
-  NumberInputStepper,
   Select,
-  useToast,
-  Heading,
-  HStack,
   Textarea,
+  useToast
 } from "@chakra-ui/react";
-import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import {
   isValidAge,
-  isValidAmount,
   isValidFullName,
   isValidMobileNo,
-  isValidWeight,
+  isValidWeight
 } from "../helpers/formValidationHelpers";
 
 function AddPatientInfo({

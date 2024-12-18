@@ -1,30 +1,28 @@
 import {
-  Flex,
-  Button,
-  Box,
-  Link,
   Accordion,
-  AccordionItem,
   AccordionButton,
+  AccordionItem,
   AccordionPanel,
   Avatar,
-  MenuButton,
+  Box,
+  Button,
+  Flex,
+  Link,
   Menu,
+  MenuButton,
   MenuItem,
   MenuList,
-  Text,
   Switch,
+  Text,
 } from "@chakra-ui/react";
 
-import { FaBars } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.png";
-import { useContext, useState } from "react";
-import { GlobalContext } from "../context/GlobalContext";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useToast, useColorMode } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useColorMode, useToast } from "@chakra-ui/react";
+import axios from "axios";
+import { useContext, useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { NavLink, useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalContext";
 axios.defaults.withCredentials = true;
 const Header = () => {
   const { currentUser, setCurrentUser, setExpirationTime } =
@@ -123,7 +121,7 @@ const Header = () => {
               >
                 <Text>Dark Mode</Text>{" "}
                 <Switch
-                  
+
                   size="md"
                   onChange={toggleColorMode}
                   isChecked={colorMode === "dark"}

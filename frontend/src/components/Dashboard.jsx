@@ -1,7 +1,6 @@
-import { Box, Divider, Flex, SimpleGrid } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, useToast } from "@chakra-ui/react";
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { useToast } from "@chakra-ui/react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../context/GlobalContext";
 const Dashboard = () => {
   const [AddPatientInformation, setAddPatientInformation] = useState([]);

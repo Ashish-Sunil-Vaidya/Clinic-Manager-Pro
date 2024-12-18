@@ -1,20 +1,20 @@
 import {
-  Grid,
-  InputGroup,
-  FormLabel,
-  Input,
-  Select,
   Button,
-  Heading,
-  FormControl,
   Flex,
+  FormControl,
+  FormLabel,
+  Grid,
+  Heading,
+  Input,
+  InputGroup,
+  Select,
+  useToast,
   VStack,
 } from "@chakra-ui/react";
-import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useToast } from "@chakra-ui/react";
-import { GlobalContext } from "../../context/GlobalContext";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../../context/GlobalContext";
 import {
   isValidAge,
   isValidFullName,
@@ -136,7 +136,7 @@ const AddAppointment = () => {
       if (!isValidAge(age)) setAge(0);
       if (!isValidMobileNo(mobile_no)) setMobileNo("");
       if (!isValidFullName(patient_name)) setPatientName("");
-      
+
       setError(true);
       setIsLoading(false);
       toast({
@@ -169,7 +169,7 @@ const AddAppointment = () => {
               width="100%"
               type="text"
               bgColor={inputBgColor}
-              
+
               placeholder="Enter name"
               borderRadius="10px"
               value={patient_name}
@@ -190,7 +190,7 @@ const AddAppointment = () => {
               width="100%"
               type="text"
               bgColor={inputBgColor}
-              
+
               placeholder="Enter Mobile no"
               borderRadius="10px"
               value={mobile_no}
@@ -214,7 +214,7 @@ const AddAppointment = () => {
                   fontSize="18px"
                   width="100%"
                   bgColor={inputBgColor}
-                  
+
                   borderRadius="10px"
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
@@ -235,7 +235,7 @@ const AddAppointment = () => {
                   width="100%"
                   placeholder="Select Gender"
                   bgColor={inputBgColor}
-                  
+
                   borderRadius="10px"
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
@@ -262,7 +262,7 @@ const AddAppointment = () => {
                   size="md"
                   type="date"
                   bgColor={inputBgColor}
-                  
+
                   borderRadius="10px"
                   value={date_of_app}
                   onChange={(e) => setDateOfApp(e.target.value)}
@@ -284,7 +284,7 @@ const AddAppointment = () => {
                   size="md"
                   type="time"
                   bgColor={inputBgColor}
-                  
+
                   borderRadius="10px"
                   value={time_of_app}
                   onChange={(e) => setTimeOfApp(e.target.value)}
