@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 import swaggerJsDoc from "swagger-jsdoc";
 
 const __dirname1 = path.dirname(fileURLToPath(import.meta.url));
-const __dirname2 = path.join(__dirname1, '../');
+const __dirname2 = path.join(__dirname1, '../../');
 
 const app = express()
 
@@ -23,7 +23,7 @@ app.use(cors({
 
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 app.use(cookieParser());
 
